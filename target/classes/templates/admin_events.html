@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin - Events</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <h1 class="header-title" style="margin:0;">Intracollege Sports</h1>
+            <div class="module-title">Admin Portal</div>
+        </div>
+        <div class="glass-card">
+            <h2>All Events</h2>
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>Name</th><th>Type</th><th>Category</th></tr>
+                </thead>
+                <tbody>
+                    <tr th:each="event : ${events}">
+                        <td th:text="${event.id}"></td>
+                        <td th:text="${event.name}"></td>
+                        <td th:text="${event.type}"></td>
+                        <td th:text="${event.category}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="/admin" class="back-link">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

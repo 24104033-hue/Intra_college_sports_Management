@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Coordinator Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <h1 class="header-title" style="margin:0;">Intracollege Sports</h1>
+            <div class="module-title">Coordinator Portal</div>
+        </div>
+        <div class="glass-card">
+            <h2>Coordinator Actions</h2>
+            <ul class="nav-links">
+                <li><a href="/coordinator/event/add">Add Event</a></li>
+                <li><a href="/coordinator/schedule/add">Add Schedule</a></li>
+                <li><a href="/coordinator/fixtures/create">Create Fixtures</a></li>
+                <li><a href="/coordinator/fixtures/view">View Fixtures</a></li>
+                <li><a href="/coordinator/result/add">Add Result</a></li>
+                <li><a href="/coordinator/event/result">Detailed Event Result</a></li>
+                <li><a href="/coordinator/points">View Points</a></li>
+                <li><a href="/coordinator/captain/add">Add Captain</a></li>
+                <li><a href="/admin/result">Final Result</a></li>
+                <li><a href="/" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

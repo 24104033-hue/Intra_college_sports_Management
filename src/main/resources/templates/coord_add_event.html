@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Event</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <h1 class="header-title" style="margin:0;">Intracollege Sports</h1>
+            <div class="module-title">Coordinator Portal</div>
+        </div>
+        <div class="glass-card">
+            <h2>Add New Event</h2>
+            <form action="/coordinator/event/add" method="post">
+                <div class="form-group">
+                    <label>Event ID</label>
+                    <input type="number" name="id" required/>
+                </div>
+                <div class="form-group">
+                    <label>Event Name</label>
+                    <input type="text" name="name" required/>
+                </div>
+                <div class="form-group">
+                    <label>Type</label>
+                    <select name="type" id="type" required onchange="updateMaxPlayers()">
+                        <option value="Group">Group</option>
+                        <option value="Individual">Individual</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select name="category" required>
+                        <option value="Men">Men</option>
+                        <option value="Women">Women</option>
+                        <option value="Mixed">Mixed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Winner Points</label>
+                    <input type="number" name="winPts" required/>
+                </div>
+                <div class="form-group">
+                    <label>Runner Points</label>
+                    <input type="number" name="runPts" required/>
+                </div>
+                <div class="form-group">
+                    <label>Max Players per Team</label>
+                    <input type="number" name="maxPlayers" id="maxPlayers" required/>
+                </div>
+                <button type="submit" class="btn-primary">Add Event</button>
+            </form>
+            <a href="/coordinator" class="back-link">← Back to Dashboard</a>
+        </div>
+    </div>
+    <script>
+        function updateMaxPlayers() {
+            var typeSelect = document.getElementById('type');
+            var maxPlayersInput = document.getElementById('maxPlayers');
+            if (typeSelect.value === 'Individual') {
+                maxPlayersInput.value = 1;
+                maxPlayersInput.readOnly = true;
+            } else {
+                maxPlayersInput.readOnly = false;
+            }
+        }
+        
+        // Run once on load just in case 'Individual' is selected by default or browser caching
+        window.onload = updateMaxPlayers;
+    </script>
+</body>
+</html>

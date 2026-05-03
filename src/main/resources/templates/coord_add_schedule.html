@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Schedule</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <h1 class="header-title" style="margin:0;">Intracollege Sports</h1>
+            <div class="module-title">Coordinator Portal</div>
+        </div>
+        <div class="glass-card">
+            <h2>Add Schedule</h2>
+            <div th:if="${error}" class="text-danger" style="margin-bottom: 1rem; text-align: center; font-weight: bold;" th:text="${error}"></div>
+            <form action="/coordinator/schedule/add" method="post">
+                <div class="form-group">
+                    <label>Event ID</label>
+                    <input type="number" name="eventId" required/>
+                </div>
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="text" name="date" placeholder="DD/MM/YYYY" required/>
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    <input type="text" name="time" placeholder="HH:MM AM/PM" required/>
+                </div>
+                <div class="form-group">
+                    <label>Venue</label>
+                    <input type="text" name="venue" required/>
+                </div>
+                <button type="submit" class="btn-primary">Add Schedule</button>
+            </form>
+            <a href="/coordinator" class="back-link">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

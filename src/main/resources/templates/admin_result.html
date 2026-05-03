@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin - Final Result</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <h1 class="header-title" style="margin:0;">Intracollege Sports</h1>
+            <div class="module-title">Admin Portal</div>
+        </div>
+        <div class="glass-card" style="text-align: center;">
+            <h2>Final Result</h2>
+            <h3 style="font-size: 2rem; color: var(--success); margin: 2rem 0;">Overall Winner: <span th:text="${result}"></span></h3>
+            <a href="/admin" class="back-link">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

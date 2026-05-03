@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin - Captains</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <h1 class="header-title" style="margin:0;">Intracollege Sports</h1>
+            <div class="module-title">Admin Portal</div>
+        </div>
+        <div class="glass-card">
+            <h2>All Captains</h2>
+            <table>
+                <thead>
+                    <tr><th>Dept</th><th>Name</th><th>Year</th></tr>
+                </thead>
+                <tbody>
+                    <tr th:each="captain : ${captains}">
+                        <td th:text="${captain.dept}"></td>
+                        <td th:text="${captain.name}"></td>
+                        <td th:text="${captain.year}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="/admin" class="back-link">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

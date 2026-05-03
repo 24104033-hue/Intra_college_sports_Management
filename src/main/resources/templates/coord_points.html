@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Points Table</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <h1 class="header-title" style="margin:0;">Intracollege Sports</h1>
+            <div class="module-title">Coordinator Portal</div>
+        </div>
+        <div class="glass-card">
+            <h2>Points Table</h2>
+            <table>
+                <thead>
+                    <tr><th>Department</th><th>Total Points</th></tr>
+                </thead>
+                <tbody>
+                    <tr th:each="point : ${points}">
+                        <td th:text="${point.dept}"></td>
+                        <td th:text="${point.score}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="/coordinator" class="back-link">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

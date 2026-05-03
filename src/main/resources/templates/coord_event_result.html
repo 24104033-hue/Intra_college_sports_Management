@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detailed Event Result</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <h1 class="header-title" style="margin:0;">Intracollege Sports</h1>
+            <div class="module-title">Coordinator Portal</div>
+        </div>
+        <div class="glass-card">
+            <h2>Detailed Event Result</h2>
+            <div th:if="${error}" class="text-danger" style="margin-bottom: 1rem; text-align: center; font-weight: bold;" th:text="${error}"></div>
+            <form action="/coordinator/event/result" method="get" style="margin-bottom: 2rem;">
+                <div class="form-group">
+                    <label>Enter Event ID</label>
+                    <div style="display: flex; gap: 1rem;">
+                        <input type="number" name="eventId" required/>
+                        <button type="submit" class="btn-primary" style="width:auto;">View Result</button>
+                    </div>
+                </div>
+            </form>
+            
+            <div th:if="${resultDetails != null}">
+                <h3 style="color: var(--success); margin-top: 1.5rem;">Winner Department: <span th:text="${resultDetails.winnerDept}"></span></h3>
+                <table>
+                    <thead><tr><th>Name</th><th>Roll No</th><th>Year</th></tr></thead>
+                    <tbody>
+                        <tr th:each="player : ${resultDetails.winnerPlayers}">
+                            <td th:text="${player.name}"></td>
+                            <td th:text="${player.rollNo}"></td>
+                            <td th:text="${player.year}"></td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(resultDetails.winnerPlayers)}">
+                            <td colspan="3" style="text-align: center; color: var(--text-secondary);">No players found</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 style="color: var(--accent-color); margin-top: 2rem;">Runner-up Department: <span th:text="${resultDetails.runnerDept}"></span></h3>
+                <table>
+                    <thead><tr><th>Name</th><th>Roll No</th><th>Year</th></tr></thead>
+                    <tbody>
+                        <tr th:each="player : ${resultDetails.runnerPlayers}">
+                            <td th:text="${player.name}"></td>
+                            <td th:text="${player.rollNo}"></td>
+                            <td th:text="${player.year}"></td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(resultDetails.runnerPlayers)}">
+                            <td colspan="3" style="text-align: center; color: var(--text-secondary);">No players found</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a th:href="@{/coordinator/event/result/export}" class="btn-primary" style="text-decoration: none; display: inline-block;">Download All Results (CSV)</a>
+                </div>
+            </div>
+            <a href="/coordinator" class="back-link">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

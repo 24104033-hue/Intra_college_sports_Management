@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Captain</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <h1 class="header-title" style="margin:0;">Intracollege Sports</h1>
+            <div class="module-title">Coordinator Portal</div>
+        </div>
+        <div class="glass-card">
+            <h2>Assign Department Captain</h2>
+            <form action="/coordinator/captain/add" method="post">
+                <div class="form-group">
+                    <label>Department Code</label>
+                    <input type="text" name="dept" required/>
+                </div>
+                <div class="form-group">
+                    <label>Captain Name</label>
+                    <input type="text" name="name" required/>
+                </div>
+                <div class="form-group">
+                    <label>Year</label>
+                    <input type="number" name="year" required/>
+                </div>
+                <button type="submit" class="btn-primary">Add Captain</button>
+            </form>
+            <a href="/coordinator" class="back-link">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
